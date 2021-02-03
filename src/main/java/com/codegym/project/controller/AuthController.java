@@ -24,11 +24,6 @@ public class AuthController {
     @Autowired
     private IUserService iUserService;
 
-    @GetMapping("/")
-    public ResponseEntity<Iterable<User>> test() {
-        return new ResponseEntity<>(iUserService.findAll(), HttpStatus.OK);
-    }
-
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
         Authentication authentication = authenticationManager.authenticate(
